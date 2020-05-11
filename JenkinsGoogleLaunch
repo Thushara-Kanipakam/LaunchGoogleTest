@@ -1,7 +1,15 @@
-node {
-     stage {
-         
-         git 'https://github.com/Thushara-Kanipakam/LaunchGoogleTest'
-      }
-      }
-      
+node
+{
+stage('Checkout')
+{
+checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Thushara-Kanipakam/LaunchGoogleTest']]])
+}
+stage('Build')
+{
+echo "Build the code"
+}
+stage('End')
+{
+echo "End the code"
+}
+}
